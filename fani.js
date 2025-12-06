@@ -1084,7 +1084,7 @@ function addListener() { // добавка обработчиков событи
  }
  else cbG.checked('N') // чтобы пользователь нажал
 
- addEventListener("beforeunload", writeIni);
+ //addEventListener("beforeunload", writeIni); // для тестирования убрать
 }
 
 fani=function (p={}) { // загрузка всего и запуск анимации
@@ -1097,7 +1097,8 @@ fani=function (p={}) { // загрузка всего и запуск анима
      createUI() // создание компонентов UI
      extractNames()
      extractText()
-     readIni();
+//   readIni(); // для тестирования убрать
+     if (p.scale) {scaleValue=p.scale; d.m=scaleValue/100;}
      image=p.image? p.image:images[ni];
      back =p.back ? p.back:backes[nb];
      filesToArrays();
@@ -1106,7 +1107,6 @@ fani=function (p={}) { // загрузка всего и запуск анима
      makeTexture('back',   back);
      makeTexture('image',  image);
      makeTexture('mouth', 'mouth.jpg');
-//     addListener()
    }
    // l('p.ani='+p.ani)
    if (p.ani!=undefined) {ani=p.ani; cbS.checked(ani?'Y':'N')};
