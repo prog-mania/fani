@@ -1,0 +1,33 @@
+﻿<!--
+Программа показывает анимированное изображение человека,
+который выглядит, движется, дышит и говорит как живой.
+
+Программа получает в файле files.js
+картинку лица в base64, координаты точек landmarks и их триангуляцию для webGL
+и морфы изменения координат точек при деформации лица.
+Изменять их можно регуляторами или автоматической анимацией, 
+возможно, при произнесении голосом.
+Голос получается готовым файлом wav из files.js
+или синтезируется на сервере по тексту тоже из files.js.
+-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анимация лица из картинки</title>
+    <style>
+        body {margin:0;background:#fff;overflow:hidden; font-family:'arial'}
+        button,span {position:absolute;font-size:10pt; top:10px;height:24px; width:90px}
+    </style>
+</head>
+<script src="fani.js"> </script> <!-- программа Fani-->
+<script src="files.js"></script><!-- массив files с данными файлов: files['имя файла']=`содержимое`;...-->
+<body>
+<canvas id="glcanvas" style="position:absolute; background: white"></canvas>
+</body>
+<script>
+   fani({image:'08787.webp', back:'back6.webp', adjust:true, ani:true})
+   setTimeout( ()=>{ fani({adjust:false, ani:true, say:'speech073.wav'})}, 4000);
+</script>
+
+</html>
