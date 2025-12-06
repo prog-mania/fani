@@ -642,6 +642,7 @@ function makeTexture(nameTex, nameImage) {
          setTimeout(startEyes,  rand(1000,4000)); // запуск движения глаз
          setTimeout(startDown,  rand(1000,4000)); // запуск движения низа
          startChangeImage()  // запуск смены картинки
+         addListener()
       }
   };
   img.onerror = () => console.error('Не удалось загрузить изображение из files.js: '+nameTex+' - '+nameImage);
@@ -1105,7 +1106,7 @@ fani=function (p={}) { // загрузка всего и запуск анима
      makeTexture('back',   back);
      makeTexture('image',  image);
      makeTexture('mouth', 'mouth.jpg');
-     addListener()
+//     addListener()
    }
    // l('p.ani='+p.ani)
    if (p.ani!=undefined) {ani=p.ani; cbS.checked(ani?'Y':'N')};
