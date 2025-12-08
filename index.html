@@ -14,20 +14,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Анимация лица из картинки</title>
+    <title>fani</title>
     <style>
         body {margin:0;background:#fff;overflow:hidden; font-family:'arial'}
-        button,span {position:absolute;font-size:10pt; top:10px;height:24px; width:90px}
     </style>
 </head>
-<script src="fani.js"> </script> <!-- программа Fani-->
+<script src="fani.js"> </script><!-- программа Fani-->
 <script src="files.js"></script><!-- массив files с данными файлов: files['имя файла']=`содержимое`;...-->
 <body>
-<canvas id="glcanvas" style="position:absolute; background: white"></canvas>
 </body>
 <script>
-   fani({image:'08787.webp', back:'back6.webp', adjust:true, ani:true, scale:60})
-   //setTimeout( ()=>{ fani({adjust:false, ani:true, say:'speech073.wav'})}, 4000);
+   // запуск file:///D:/Fani/index.html?image=08903.webp
+   let image=new URLSearchParams(document.location.search).get('image')
+
+   fani({image:image||'08787.webp', back:'back3.webp', adjust:true, ani:true, scale:60})
+
+   // Через 5 сек. скрыть настройки и сказать файл если успеть нажать мышь или клавишу
+   //setTimeout( ()=>{ fani({adjust:false, say:'speech073.wav'})}, 5000);
 </script>
 
 </html>
