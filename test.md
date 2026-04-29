@@ -1,6 +1,8 @@
 # Project Name
 
-[English](#english) | [Русский](#русский)
+[English](#english) | [ 🇷🇺 Русский ](README.ru.md)
+🇬🇧 English | 🇷🇺 Русский | 🇩🇪 Deutsch
+
 
 <a name="english"></a>
 ## Description
