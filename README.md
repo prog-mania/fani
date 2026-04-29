@@ -6,7 +6,7 @@ synthesized by text via speech API and delphi or silero and python.
 It is possible to work in the form of one exe file.
 
 
-##Possible use:
+## Possible use:
 - Attracting attention to the page on the Internet and speaking advertising.
 - Animated, talking, breathable picture on the screen and slideshow.
 An animated, talking character that responds from LLM.
