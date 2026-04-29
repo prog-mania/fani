@@ -1,29 +1,29 @@
-## Описание
-Программа показывает на html странице анимированное изображение человека
-из картинки формата jpg, webp, который движется, дышит и говорит.
-Возможна синхронизация анимации с речью из wav файлов или 
-из синтезированой по тексту через speech API и delphi или silero и python.
-Возможна работого в виде одного exe файла.
+## Description
+The program shows on html the animated image of a person
+from the jpg, webp, which moves, breathes and speaks.
+Possible synchronization of animation with speech from wav files or 
+synthesized by text via speech API and delphi or silero and python.
+It is possible to work in the form of one exe file.
 
 
-## Возможное использование:
-- Привлечение внимания к странице в интернете и говорящая реклама.
-- Анимированная, говорящая, дышащая картинка на экране и слайдшоу.
-- Анимированный, говорящий персонаж, отвечающий от LLM.
-- Редактирование портрета путём искажений лица и тела и сохранение в jpg.
+##Possible use:
+- Attracting attention to the page on the Internet and speaking advertising.
+- Animated, talking, breathable picture on the screen and slideshow.
+An animated, talking character that responds from LLM.
+- Editing the portrait by distorting the face and body and preservation in jpg.
 
-## Подробнее
-Программа получает в файле files.js:
-- картинку лица в base64,
-- координаты точек landmarks,
-- и их триангуляцию для webGL,
-- морфы изменения координат точек при деформации лица.
-Изменять лицо и тела можно регуляторами или автоматической анимацией, 
-и при произнесении голосом.
-Анимация происходит с помощью webGL в 2D.
+## More Details
+The program receives in the file.js file:
+- face picture in base64,
+- coordinates of points of the content,
+- and their triangulation for webGL,
+- morphs of changes in the coordinates of the points during facial deformation.
+You can change the face and body by regulators or automatic animation, 
+and when uttering in voice.
+Animation occurs using webGL in 2D.
 
 ## Quick start
-- Демо html: https://prog-mania.github.io/fani/
-- Демо exe:  https://github.com/prog-mania/fani/blob/main/fani.exe
+- Demo html: https://prog-mania.github.io/fai/
+- Demo exe: https://github.com/prog-mania/fani/blani/main/main/fini.exe
 
-###### Программа в разработке. Это не окончательный вариант, а испытания github
+###### The program in development. This is not the final version, but the github test
