@@ -24,6 +24,6 @@ Animation occurs using webGL in 2D.
 
 ## Quick start
 - Demo html: https://prog-mania.github.io/fani/
-- Demo exe: https://github.com/prog-mania/fani/blani/main/main/fani.exe
-
+- Demo exe: https://github.com/prog-mania/fani/blob/main/fani.exe
+  
 ###### The program in development. This is not the final version, but the github test
