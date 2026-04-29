@@ -1,3 +1,4 @@
+[🇷🇺 Русский](README.ru.md)
 ## Description
 The program shows on html the animated image of a person
 from the jpg, webp, which moves, breathes and speaks.
