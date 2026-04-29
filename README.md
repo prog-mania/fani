@@ -23,7 +23,7 @@ and when uttering in voice.
 Animation occurs using webGL in 2D.
 
 ## Quick start
-- Demo html: https://prog-mania.github.io/fai/
-- Demo exe: https://github.com/prog-mania/fani/blani/main/main/fini.exe
+- Demo html: https://prog-mania.github.io/fani/
+- Demo exe: https://github.com/prog-mania/fani/blani/main/main/fani.exe
 
 ###### The program in development. This is not the final version, but the github test
