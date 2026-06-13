@@ -77,9 +77,10 @@ var
 implementation
 
 var
-files: str='';
-exe:   str='';
-main:  str=''; // где всё
+files:  str='';
+exe:    str='';
+exeFile:str;
+main:   str=''; // где всё
 threadChrome:tThreadChrome;
 isCloseQuery: bool=false;
 f1:           bool=true; // загружается 1-ый файл основной - добавка script.js
@@ -159,14 +160,11 @@ end;
 procedure TForm1.Button1Click(Sender: TObject);
 var p,p1,p2: int; s,fileName, dir:str; f1:bool;
 begin
-//exe:=read('c:\delphi\html2exe\model.exe');
+//exe:=read('model.exe');
 p:=1; left:=0; memo1.Lines.Clear; memo1.Lines.Add('Extracted files:'); f1:=true;
 
 while true do begin
    p1:=posEx('<!--fileName=',exe,p);
-   if f1 then begin
-      f1:=false; write(repl(efn(application.ExeName),'.exe','_clean.exe'),copy(exe,1,p1-1));
-   end;
    if p1=0 then break;
    inc(p1,13);
    p2:=posEx('-->',exe,p1);
@@ -174,18 +172,25 @@ while true do begin
    s:=repl(copy(exe,p1,p2-p1),'/','\');
    fileName:=extractFileName(s);
    dir     :=extractFileDir(s);
-   dir:=repl(cd,'/','\')+copyK(dir,3);
+   dir:=repl(cd,'/','\')+'\'+dir;
+   dir:=repl(dir,'\\','\');
    if ForceDirectories(dir) then begin
       p1:=p2+4;
       p2:=posEx('<!--fileName=',exe,p1);
       if p2<1 then p2:=length(exe)+2;
       s:=copy(exe,p1,p2-p1-1);
       fileName:=dir+'\'+fileName;
-      write(fileName,s);
-      memo1.Lines.Add(fileName);
+      fileName:=repl(fileName,'\\','\');
+      if length(s)>0 then begin
+         write(fileName,s);
+         memo1.Lines.Add(fileName);
+      end;
     end;
     p:=p2;
 end;
+exeFile:=read(application.ExeName);
+p1:=posEx('<!--fileName=',exeFile);
+if p1>0 then write(repl(efn(application.ExeName),'.exe','_clean.exe'),copy(exe,1,p1-1));
 end;
 
 
@@ -591,7 +596,7 @@ for i:=1 to paramCount do begin
     if pos('profile=',p)=1 then profile:=v else
     if pos('debug',p)=1    then begin readIni; beginVoice; timer1.Enabled:=false; exit end;// для отладки
     if pos('exe',  p)=1    then begin noExe:=false; if length(p)>4 then exeName:=v end else
-    if ps('.htm',p)        then f:=p else
+    if ps('.htm',p)        then f:=paramStr(i) else
     if ps('/p',p)          then application.Terminate else// screenSaver - показать вид?
     if ps('/s',p)          then screenSaver:=true else
     if pos('dirwav=',p)=1 then dirWav:=v;
@@ -599,6 +604,7 @@ end;
 chdir(cd);
 html:=AnsiToUTF8(read('fani_server.html'));
 exe:=read(application.ExeName);
+//exe:=read('model.exe'); //rrr
 exeProject:=e('project',p);
 e('xywh',xywh);
 if exeProject then begin
@@ -609,7 +615,7 @@ end
 else
 if project='' then project:=f;
 
-button1.Visible:=exeProject;
+button1.Visible:=true;//exeProject; rrr
 project:=repl(project, '\','/');
 if base=''  then base:=repl(extractFileDir(repl(project,'/','\')),'\','/')+'/';
 if profile=''  then profile:=tmt(efn(project),'','.');
